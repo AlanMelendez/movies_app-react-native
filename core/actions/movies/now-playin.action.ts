@@ -1,9 +1,10 @@
 import { movieApi } from "@/core/api/movie-api";
+import { MoviesDBMoviesResponse } from "@/infrastructure/interfaces/moviedb-response";
 
 export const nowPlaying = async (page: number = 1) => {
     try {
 
-        const {data} = await movieApi.get('/now_playing');
+        const {data} = await movieApi.get<MoviesDBMoviesResponse>('/now_playing');
 
         console.log(JSON.stringify(data.results, null, 2));
 
