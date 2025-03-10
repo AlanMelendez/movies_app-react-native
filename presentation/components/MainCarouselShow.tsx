@@ -18,7 +18,7 @@ const MainCarouselShow = ({ movies }: Props) => {
         ref={ref}
         data={movies}
         renderItem={({ item }) => (
-          <MoviePoster id={item.id} poster={item.poster} />
+          <MoviePoster id={item.id} posterUrl={item.poster} />
           // <Text>{item.title}</Text>
         )}
         width={200}
