@@ -28,7 +28,7 @@ const HomeScreen = () => {
 
       {/* Images Carousel */}
 
-      <MainCarouselShow/>
+      <MainCarouselShow movies={nowPlayingQuery.data ?? []}/>
     </View>
   )
 }
