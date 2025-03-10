@@ -9,6 +9,7 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { nowPlaying } from "@/core/actions/movies/now-playin.action";
+import { Stack } from "expo-router";
 const RootLayout = () => {
   // nowPlaying();
 
@@ -16,9 +17,7 @@ const RootLayout = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <View className="flex flex-1 justify-center items-center">
-        <Text className="text-3xl text-cyan-600">RootLayout</Text>
-      </View>
+      <Stack screenOptions={{headerShown:false}}/>
     </QueryClientProvider>
   );
 };
