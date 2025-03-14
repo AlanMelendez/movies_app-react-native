@@ -1,14 +1,15 @@
-import { View, Text } from 'react-native'
+import { View, Text,SafeAreaView } from 'react-native'
 import React from 'react'
 import { useMovies } from '@/presentation/Movies/hooks/useMovies'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import MainCarouselShow from '@/presentation/components/MainCarouselShow'
 import MovieHorizontalList from '@/presentation/components/movies/MovieHorizontalList'
+import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler'
 
 const HomeScreen = () => {
  
     const safeArea = useSafeAreaInsets();
-    const {nowPlayingQuery, popularMoviesQuery} = useMovies();
+    const {nowPlayingQuery, popularMoviesQuery, topRatedMoviesQuery, upcomingMoviesQuery} = useMovies();
 
     if(nowPlayingQuery.isLoading){
       return (
@@ -24,15 +25,24 @@ const HomeScreen = () => {
 
 
   return (
-    <View className='mt-4' style={{paddingTop: safeArea.top}}>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <ScrollView className='mt-4 ' style={{paddingTop: safeArea.top}} nestedScrollEnabled>
       <Text className='text-3xl font-bold px-4 mb-2'>Movies App</Text>
 
-      {/* Images Carousel */}
+      {/* Images Carousel */}  
       <MainCarouselShow movies={nowPlayingQuery.data ?? []}/>
 
       {/* Horizontal Movies List */}
       <MovieHorizontalList movies={popularMoviesQuery.data ?? []} />
-    </View>
+
+      {/* Horizontal Movies List */}
+      <MovieHorizontalList title='Top Rated Movies' movies={topRatedMoviesQuery.data ?? []} />
+
+      {/* Horizontal Movies List */}
+      <MovieHorizontalList title='Upcoming just on Movies' movies={upcomingMoviesQuery.data ?? []} />
+    </ScrollView>
+    </GestureHandlerRootView>
+    
   )
 }
 

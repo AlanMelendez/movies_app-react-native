@@ -11,7 +11,7 @@ interface PropPopularityMovies{
 const MovieHorizontalList = ({movies, title}:PropPopularityMovies) => {
   return (
     <View>
-      <Text className='text-3xl font-bold px-4 mb-3'>{title ?? 'Popularity'}</Text>
+      <Text className='text-3xl font-bold px-4 mb-3 mt-2'>{title ?? 'Popularity'}</Text>
       <FlatList
         horizontal
         data={movies}
