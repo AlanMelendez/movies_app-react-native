@@ -62,8 +62,7 @@ This command will move the starter code to the **app-example** directory and cre
 
 Include screenshots of your app to showcase its features and design.
 
-![Screenshot 1](path/to/screenshot1.png)
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot 1](./assets/screenshots/movies_finished.png)
 
 ## Learn more
 
