@@ -1,6 +1,7 @@
 import { View, Text, Pressable, Image } from 'react-native';
 
 import { Movie } from '@/infrastructure/interfaces/movie.interface';
+import { router } from 'expo-router';
 
 //! Please use just props do you need to show poster. Don't use another prop.
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 
 const MoviePoster = ({ id, posterUrl, smallPoster = false, className }: Props) => {
   return (
-    <Pressable className={`active:opacity-90 px-2 ${className}`}>
+    <Pressable className={`active:opacity-90 px-2 ${className}`} onPress={()=> router.push(`/movie/${id}`)}>
       <Image
         source={{ uri: posterUrl }}
         className="shadow-lg rounded-2xl w-full h-full"
