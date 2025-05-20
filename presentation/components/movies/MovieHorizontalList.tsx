@@ -7,7 +7,7 @@ interface PropPopularityMovies{
   movies: Movie[];
   title?:string;
   className?: string;
-  loadNextPage: () => void;
+  loadNextPage?: () => void;
 }
 //! It's a reusable component, so please ensure that you send only the necessary properties.
 const MovieHorizontalList = ({movies, title, className, loadNextPage}:PropPopularityMovies) => {
@@ -27,7 +27,7 @@ const MovieHorizontalList = ({movies, title, className, loadNextPage}:PropPopula
     isLoading.current = true;
 
 
-    console.log('Loading next movies...')
+    //console.log('Loading next movies...')
 
     loadNextPage && loadNextPage();
 

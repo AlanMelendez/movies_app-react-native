@@ -12,7 +12,7 @@ export const nowPlaying = async (page: number = 1) => {
             movie => MovieMapper.fromTheMovieDBToMovie(movie)
         );
 
-        console.log(JSON.stringify(movies, null, 2));
+        //console.log(JSON.stringify(movies, null, 2));
         return [...movies];
         
     } catch (error) {
